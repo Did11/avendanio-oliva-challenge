@@ -1,0 +1,55 @@
+.
+├── estructura_proyecto.txt
+├── index.html
+├── package.json
+├── package-lock.json
+├── pasar.txt
+├── public
+│   └── vite.svg
+├── README.md
+├── shared
+│   ├── components
+│   ├── hooks
+│   ├── services
+│   └── styles
+├── src
+│   ├── app
+│   │   ├── App.jsx
+│   │   ├── routes.jsx
+│   │   └── styles
+│   │       ├── App.css
+│   │       └── scream.txt
+│   ├── assets
+│   │   └── react.svg
+│   ├── components
+│   │   ├── Header.jsx
+│   │   └── styles
+│   │       └── Header.css
+│   ├── features
+│   │   ├── auth
+│   │   │   ├── AuthContext.jsx
+│   │   │   ├── AuthReducer.js
+│   │   │   └── styles
+│   │   │       └── Auth.css
+│   │   ├── cart
+│   │   │   ├── CartContext.jsx
+│   │   │   ├── CartReducer.js
+│   │   │   └── styles
+│   │   │       └── Cart.css
+│   │   └── products
+│   ├── main.jsx
+│   ├── pages
+│   │   ├── HomePage.jsx
+│   │   ├── LoginPage.jsx
+│   │   └── styles
+│   │       ├── HomePage.css
+│   │       └── LoginPage.css
+│   ├── services
+│   │   └── api.js
+│   ├── store
+│   │   └── store.js
+│   └── styles
+│       └── index.css
+└── vite.config.js
+
+23 directories, 29 files

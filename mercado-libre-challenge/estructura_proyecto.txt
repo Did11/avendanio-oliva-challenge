@@ -1,0 +1,19 @@
+.
+├── estructura_proyecto.txt
+├── index.html
+├── package.json
+├── package-lock.json
+├── public
+│   └── vite.svg
+├── README.md
+├── src
+│   ├── app
+│   │   ├── App.css
+│   │   └── App.jsx
+│   ├── assets
+│   │   └── react.svg
+│   ├── index.css
+│   └── main.jsx
+└── vite.config.js
+
+4 directories, 12 files
