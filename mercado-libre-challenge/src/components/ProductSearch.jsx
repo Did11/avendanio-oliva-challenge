@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { searchProducts } from '../services/api';
 import ProductList from './ProductList';
+import SearchBar from '../../shared/components/SearchBar'; 
 
 const ProductSearch = () => {
   // Estado para manejar la consulta de búsqueda
@@ -32,16 +33,8 @@ const ProductSearch = () => {
 
   return (
     <div>
-      {/* Formulario de búsqueda */}
-      <form onSubmit={handleSearch}>
-        <input
-          type="text"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          placeholder="Buscar productos..."
-        />
-        <button type="submit">Buscar</button>
-      </form>
+      {/* Componente SearchBar para el formulario de búsqueda */}
+      <SearchBar query={query} setQuery={setQuery} handleSearch={handleSearch} />
       {/* Mensaje de carga */}
       {loading && <p>Cargando...</p>}
       {/* Mensaje de error */}

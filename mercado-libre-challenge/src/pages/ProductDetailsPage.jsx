@@ -1,3 +1,5 @@
+// src/pages/ProductDetailsPage.jsx
+
 import ProductDetails from '../components/ProductDetails';
 
 const ProductDetailsPage = () => (
