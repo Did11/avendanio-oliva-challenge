@@ -1,0 +1,54 @@
+/* src/components/styles/ProductSearch.css */
+.product-search {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.product-search input {
+  width: 300px;
+  padding: 8px;
+  border: 1px solid #ccc;
+}
+
+.product-search button {
+  padding: 8px;
+  margin-left: 4px;
+  cursor: pointer;
+}
+
+.search-results {
+  position: absolute;
+  background: white;
+  border: 1px solid #ccc;
+  width: 100%;
+  max-height: 300px;
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+.search-result-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.search-result-item:last-child {
+  border-bottom: none;
+}
+
+.search-result-image {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+.search-result-item a {
+  text-decoration: none;
+  color: black;
+}
+
+.search-result-item a:hover {
+  background-color: #f0f0f0;
+}

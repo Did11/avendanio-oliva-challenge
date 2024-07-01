@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { searchProducts } from '../services/api';
 import ProductList from './ProductList';
 import SearchBar from '../../shared/components/SearchBar'; 
+import './styles/ProductSearch.css';
 
 const ProductSearch = () => {
   // Estado para manejar la consulta de búsqueda

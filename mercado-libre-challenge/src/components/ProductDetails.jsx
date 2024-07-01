@@ -38,7 +38,7 @@ const ProductDetails = () => {
       {/* Muestra los detalles del producto */}
       <h2>{product.title}</h2>
       <img src={product.thumbnail} alt={product.title} />
-      <p>Precio: {product.price}</p>
+      <p>Precio$$: {product.price}</p>
       <p>Descripción: {product.description}</p>
       {/* Añadir más detalles del producto según sea necesario */}
     </div>
