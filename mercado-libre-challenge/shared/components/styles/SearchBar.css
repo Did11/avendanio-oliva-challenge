@@ -1,0 +1,18 @@
+/* root/shared/components/styles/SearchBar.css */
+.search-bar {
+    display: flex;
+    align-items: center;
+  }
+  
+  .search-bar input {
+    width: 300px;
+    padding: 8px;
+    margin-right: 8px;
+    border: 1px solid #ccc;
+  }
+  
+  .search-bar button {
+    padding: 8px;
+    cursor: pointer;
+  }
+  

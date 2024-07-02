@@ -1,46 +1,35 @@
+// src/components/ProductSearch.jsx
 import { useState } from 'react';
 import { searchProducts } from '../services/api';
 import ProductList from './ProductList';
-import SearchBar from '../../shared/components/SearchBar'; 
+import SearchBar from '../../shared/components/SearchBar'; // Asegúrate de importar SearchBar
 import './styles/ProductSearch.css';
 
 const ProductSearch = () => {
-  // Estado para manejar la consulta de búsqueda
   const [query, setQuery] = useState('');
-  // Estado para almacenar los productos encontrados
   const [products, setProducts] = useState([]);
-  // Estado para manejar la carga
   const [loading, setLoading] = useState(false);
-  // Estado para manejar errores
   const [error, setError] = useState(null);
 
-  // Función que maneja la búsqueda de productos
   const handleSearch = async (e) => {
     e.preventDefault();
-    setLoading(true); // Inicia el estado de carga
-    setError(null); // Resetea los errores previos
+    setLoading(true);
+    setError(null);
     try {
-      // Llama a la API para buscar productos con la consulta
       const data = await searchProducts(query);
-      setProducts(data.results); // Almacena los resultados de la búsqueda
+      setProducts(data.results);
     } catch (error) {
-      // Maneja cualquier error que ocurra durante la búsqueda
       setError(error.message);
     } finally {
-      // Finaliza el estado de carga
       setLoading(false);
     }
   };
 
   return (
     <div>
-      {/* Componente SearchBar para el formulario de búsqueda */}
       <SearchBar query={query} setQuery={setQuery} handleSearch={handleSearch} />
-      {/* Mensaje de carga */}
       {loading && <p>Cargando...</p>}
-      {/* Mensaje de error */}
       {error && <p>Error: {error}</p>}
-      {/* Lista de productos encontrados */}
       <ProductList products={products} />
     </div>
   );

@@ -1,0 +1,50 @@
+/* src/components/styles/Header.css */
+.header {
+    width: 100%;
+    background-color: #ffe600; /* Color amarillo */
+    border-bottom: 2px solid #e0e0e0;
+  }
+  
+  .header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+  }
+  
+  .logo {
+    background-repeat: no-repeat;
+    overflow: hidden;
+    text-indent: -999px;
+    background-image: url('../assets/logo.png'); /* Asegúrate de que la ruta sea correcta */
+    height: 34px; /* Ajusta la altura del logo */
+    width: 134px; /* Ajusta el ancho del logo */
+    display: flex;
+    background-size: contain; /* Ajusta el tamaño de la imagen de fondo */
+  }
+  .header-nav {
+    display: flex;
+    align-items: center;
+  }
+  
+  .login-link {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    padding: 8px 16px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+  }
+  
+  .login-link:hover {
+    background-color: #f0f0f0;
+  }
+  
+
+  .new-image {
+    max-width: 340px; /* Ancho máximo */
+    max-height: 39px; /* Alto máximo */
+    margin-left: auto; /* Asegura que la imagen se alinee a la derecha */
+  }

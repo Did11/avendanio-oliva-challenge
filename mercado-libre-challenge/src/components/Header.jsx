@@ -1,15 +1,20 @@
-import { Link } from 'react-router-dom';
+// src/components/Header.jsx
 import './styles/Header.css';
+import logo from '../assets/logo.png'; // Importa el logo existente
+import newImage from '../assets/disney.webp'; // Importa la nueva imagen
 
-const Header = () => (
-  <header>
-    <h1>Mi Aplicación</h1>
-    <nav>
-      <Link to="/">Inicio</Link>
-      <Link to="/login">Iniciar Sesión</Link>
-      {/* Añadir más enlaces según sea necesario */}
-    </nav>
-  </header>
-);
+const Header = () => {
+  return (
+    <header className="header">
+      <div className="container">
+        <img src={logo} alt="Logo" className="logo" />
+        <nav className="header-nav">
+          <a href="/login" className="login-link">Iniciar Sesión</a>
+        </nav>
+        <img src={newImage} alt="New Image" className="new-image" /> {/* Nueva imagen */}
+      </div>
+    </header>
+  );
+};
 
 export default Header;
