@@ -10,7 +10,6 @@ import OrderConfirmationPage from '../pages/OrderConfirmationPage';
 import MyPurchasesPage from '../pages/MyPurchasesPage';
 import AccountPage from '../pages/AccountPage';
 
-// Configuración de rutas de la aplicación
 const AppRouter = () => (
   <Routes>
     <Route path="/" element={<HomePage />} />

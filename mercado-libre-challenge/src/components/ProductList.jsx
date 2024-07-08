@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types';
 
-// Componente para listar productos
 const ProductList = ({ products }) => {
-  if (products.length === 0) {
+  if (!products || products.length === 0) {
     return <p>No se encontraron productos.</p>;
   }
 

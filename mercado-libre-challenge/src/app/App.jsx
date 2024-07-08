@@ -1,18 +1,25 @@
 // src/app/App.jsx
+import { useState } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Header from '../components/Header';
+import ProductSearch from '../components/ProductSearch';
 import AppRouter from './routes';
 import './styles/App.css';
 
-const App = () => (
-  <div className="App">
-    <Router>
-      <Header />
-      <div className="container">
+const App = () => {
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  return (
+    <div className="App">
+      <Router>
+        <Header setProducts={setProducts} setLoading={setLoading} setError={setError} />
+        <ProductSearch products={products} loading={loading} error={error} />
         <AppRouter />
-      </div>
-    </Router>
-  </div>
-);
+      </Router>
+    </div>
+  );
+};
 
 export default App;

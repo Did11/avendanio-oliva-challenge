@@ -1,9 +1,28 @@
-// src/components/Header.jsx
+import { useState } from 'react';
+import PropTypes from 'prop-types';
+import SearchBar from '../../shared/components/SearchBar';
+import { searchProducts } from '../services/api';
 import './styles/Header.css';
-import logo from '../assets/logo.png'; // Importa el logo existente
-import newImage from '../assets/disney.webp'; // Importa la nueva imagen
+import logo from '../assets/logo.png';
+import newImage from '../assets/disney.webp';
 
-const Header = () => {
+const Header = ({ setProducts, setLoading, setError }) => {
+  const [query, setQuery] = useState('');
+
+  const handleSearch = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setError(null);
+    try {
+      const data = await searchProducts(query);
+      setProducts(data.results);
+    } catch (error) {
+      setError(error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <header className="header">
       <div className="container">
@@ -11,10 +30,17 @@ const Header = () => {
         <nav className="header-nav">
           <a href="/login" className="login-link">Iniciar Sesión</a>
         </nav>
-        <img src={newImage} alt="New Image" className="new-image" /> {/* Nueva imagen */}
+        <SearchBar query={query} setQuery={setQuery} handleSearch={handleSearch} />
+        <img src={newImage} alt="New Image" className="new-image" />
       </div>
     </header>
   );
+};
+
+Header.propTypes = {
+  setProducts: PropTypes.func.isRequired,
+  setLoading: PropTypes.func.isRequired,
+  setError: PropTypes.func.isRequired,
 };
 
 export default Header;
