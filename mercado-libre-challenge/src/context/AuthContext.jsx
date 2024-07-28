@@ -1,9 +1,11 @@
+// src/context/AuthContext.js
 import { createContext, useReducer } from 'react';
 import PropTypes from 'prop-types';
-import AuthReducer from './AuthReducer'; // Ruta correcta para importar AuthReducer
+import AuthReducer from '../features/auth/AuthReducer';
 
 const INITIAL_STATE = {
   user: null,
+  isAuthenticated: false,
 };
 
 export const AuthContext = createContext(INITIAL_STATE);
@@ -11,16 +13,8 @@ export const AuthContext = createContext(INITIAL_STATE);
 export const AuthProvider = ({ children }) => {
   const [state, dispatch] = useReducer(AuthReducer, INITIAL_STATE);
 
-  const login = (userData) => {
-    dispatch({ type: 'LOGIN', payload: userData });
-  };
-
-  const logout = () => {
-    dispatch({ type: 'LOGOUT' });
-  };
-
   return (
-    <AuthContext.Provider value={{ ...state, login, logout }}>
+    <AuthContext.Provider value={{ ...state, dispatch }}>
       {children}
     </AuthContext.Provider>
   );
