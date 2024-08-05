@@ -1,31 +1,28 @@
-// src/context/CartContext.jsx
-import { createContext, useReducer } from 'react';
+import { createContext, useReducer, useContext } from 'react';
 import PropTypes from 'prop-types';
-import CartReducer from '../reducers/CartReducer'; // Asegúrate de que la ruta es correcta
+import CartReducer from './CartReducer';
 
 const INITIAL_STATE = {
-  cart: [],
+  items: [],
+  totalAmount: 0,
 };
 
+// Crear el contexto del carrito
 export const CartContext = createContext(INITIAL_STATE);
 
 export const CartProvider = ({ children }) => {
   const [state, dispatch] = useReducer(CartReducer, INITIAL_STATE);
 
-  const addToCart = (product) => {
-    dispatch({ type: 'ADD_TO_CART', payload: product });
+  const addItem = (item) => {
+    dispatch({ type: 'ADD_ITEM', payload: item });
   };
 
-  const removeFromCart = (productId) => {
-    dispatch({ type: 'REMOVE_FROM_CART', payload: productId });
-  };
-
-  const updateQuantity = (productId, quantity) => {
-    dispatch({ type: 'UPDATE_QUANTITY', payload: { productId, quantity } });
+  const removeItem = (id) => {
+    dispatch({ type: 'REMOVE_ITEM', payload: id });
   };
 
   return (
-    <CartContext.Provider value={{ ...state, addToCart, removeFromCart, updateQuantity }}>
+    <CartContext.Provider value={{ ...state, addItem, removeItem }}>
       {children}
     </CartContext.Provider>
   );
@@ -34,3 +31,6 @@ export const CartProvider = ({ children }) => {
 CartProvider.propTypes = {
   children: PropTypes.node.isRequired,
 };
+
+// Exportar un hook para usar el contexto
+export const useCart = () => useContext(CartContext);

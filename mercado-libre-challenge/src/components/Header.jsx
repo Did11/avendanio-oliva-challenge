@@ -28,10 +28,11 @@ const Header = ({ setProducts, setLoading, setError }) => {
       <div className="container">
         <img src={logo} alt="Logo" className="logo" />
         <nav className="header-nav">
-          <a href="/login" className="login-link">Iniciar Sesión</a>
+          {/* Cambio en el texto y posible ajuste de estilos */}
+          <a href="/login" className="login-link">Ingresa</a>
         </nav>
         <SearchBar query={query} setQuery={setQuery} handleSearch={handleSearch} />
-        <img src={newImage} alt="New Image" className="new-image" />
+        <img src={newImage} alt="Promotional Image" className="new-image" />
       </div>
     </header>
   );

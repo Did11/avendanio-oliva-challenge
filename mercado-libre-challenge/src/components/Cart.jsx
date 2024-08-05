@@ -1,41 +1,25 @@
-import { useContext } from 'react';
-import { CartContext } from '../context/CartContext';
-import './styles/Cart.css';
+// src/components/Cart.jsx
+import { useCart } from '../context/CartContext'; // Asegúrate de que la ruta sea correcta
 
 const Cart = () => {
-  const { cart, removeFromCart, updateQuantity } = useContext(CartContext);
+  const { items, totalAmount, removeItem } = useCart(); // Usa el hook para acceder al estado y funciones
 
-  const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+  if (!items) {
+    return <div>Cargando...</div>; // Agregar un manejo de carga o error apropiado
+  }
 
   return (
-    <div className="cart">
-      <h2>Carrito de Compras</h2>
-      {cart.length === 0 ? (
-        <p>Tu carrito está vacío.</p>
-      ) : (
-        <ul>
-          {cart.map((item) => (
-            <li key={item.id}>
-              <h3>{item.title}</h3>
-              <p>Precio: ${item.price}</p>
-              <p>
-                Cantidad:
-                <input
-                  type="number"
-                  value={item.quantity}
-                  onChange={(e) => updateQuantity(item.id, parseInt(e.target.value, 10))}
-                  min="1"
-                />
-              </p>
-              <button onClick={() => removeFromCart(item.id)}>Eliminar</button>
-            </li>
-          ))}
-        </ul>
-      )}
-      <h3>Total: ${total.toFixed(2)}</h3>
+    <div>
+      <h2>Tus compras</h2>
+      {items.map((item) => (
+        <div key={item.id}>
+          <span>{item.name}</span>
+          <button onClick={() => removeItem(item.id)}>Remove</button>
+        </div>
+      ))}
+      <div>Monto Total: ${totalAmount.toFixed(2)}</div>
     </div>
   );
 };
 
 export default Cart;
-

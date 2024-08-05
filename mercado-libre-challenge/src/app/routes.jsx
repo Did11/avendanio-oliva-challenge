@@ -1,5 +1,6 @@
 // src/app/routes.jsx
 import { Routes, Route } from 'react-router-dom';
+import PrivateRoute from './PrivateRoute';
 import HomePage from '../pages/HomePage';
 import LoginPage from '../pages/LoginPage';
 import CategoryPage from '../pages/CategoryPage';
@@ -16,11 +17,11 @@ const AppRouter = () => (
     <Route path="/login" element={<LoginPage />} />
     <Route path="/category/:categoryId" element={<CategoryPage />} />
     <Route path="/product/:productId" element={<ProductDetailsPage />} />
-    <Route path="/cart" element={<CartPage />} />
-    <Route path="/checkout" element={<CheckoutPage />} />
-    <Route path="/order-confirmation" element={<OrderConfirmationPage />} />
-    <Route path="/my-purchases" element={<MyPurchasesPage />} />
-    <Route path="/account" element={<AccountPage />} />
+    <Route path="/cart" element={<PrivateRoute><CartPage /></PrivateRoute>} />
+    <Route path="/checkout" element={<PrivateRoute><CheckoutPage /></PrivateRoute>} />
+    <Route path="/order-confirmation" element={<PrivateRoute><OrderConfirmationPage /></PrivateRoute>} />
+    <Route path="/my-purchases" element={<PrivateRoute><MyPurchasesPage /></PrivateRoute>} />
+    <Route path="/account" element={<PrivateRoute><AccountPage /></PrivateRoute>} />
   </Routes>
 );
 

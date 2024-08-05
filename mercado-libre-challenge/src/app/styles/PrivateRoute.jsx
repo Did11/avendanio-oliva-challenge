@@ -1,4 +1,4 @@
-/* src/pages/styles/LoginPage.css */
+/* src/pages/LoginPage.css */
 .login-container {
     display: flex;
     justify-content: center;

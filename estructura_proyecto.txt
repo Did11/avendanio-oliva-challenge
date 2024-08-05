@@ -1,20 +1,76 @@
 .
+├── estructura_actual.txt
 ├── estructura_proyecto.txt
 ├── mercado-libre-challenge
+│   ├── estructura_proyecto.txt
+│   ├── estructura_proye.txt
 │   ├── index.html
 │   ├── package.json
 │   ├── package-lock.json
+│   ├── pasar.txt
 │   ├── public
-│   │   └── vite.svg
+│   │   └── favicon.ico
 │   ├── README.md
+│   ├── shared
+│   │   └── components
+│   │       ├── ProductCard.jsx
+│   │       ├── SearchBar.jsx
+│   │       └── styles
+│   │           └── SearchBar.css
 │   ├── src
-│   │   ├── App.css
-│   │   ├── App.jsx
+│   │   ├── app
+│   │   │   ├── App.jsx
+│   │   │   ├── routes.jsx
+│   │   │   └── styles
+│   │   │       └── App.css
 │   │   ├── assets
-│   │   │   └── react.svg
-│   │   ├── index.css
-│   │   └── main.jsx
+│   │   │   ├── disney.webp
+│   │   │   └── logo.png
+│   │   ├── components
+│   │   │   ├── Cart.jsx
+│   │   │   ├── Header.jsx
+│   │   │   ├── ProductDetails.jsx
+│   │   │   ├── ProductList.jsx
+│   │   │   ├── ProductSearch.jsx
+│   │   │   └── styles
+│   │   │       ├── Cart.css
+│   │   │       ├── Header.css
+│   │   │       └── ProductSearch.css
+│   │   ├── context
+│   │   │   ├── AuthContext.jsx
+│   │   │   └── CartContext.jsx
+│   │   ├── features
+│   │   │   ├── auth
+│   │   │   │   ├── AuthContext.jsx
+│   │   │   │   ├── AuthReducer.js
+│   │   │   │   └── styles
+│   │   │   │       └── Auth.css
+│   │   │   └── cart
+│   │   │       └── styles
+│   │   │           └── Cart.css
+│   │   ├── main.jsx
+│   │   ├── pages
+│   │   │   ├── AccountPage.jsx
+│   │   │   ├── CartPage.jsx
+│   │   │   ├── CategoryPage.jsx
+│   │   │   ├── CheckoutPage.jsx
+│   │   │   ├── HomePage.jsx
+│   │   │   ├── LoginPage.jsx
+│   │   │   ├── MyPurchasesPage.jsx
+│   │   │   ├── OrderConfirmationPage.jsx
+│   │   │   ├── ProductDetailsPage.jsx
+│   │   │   └── styles
+│   │   │       ├── HomePage.css
+│   │   │       └── LoginPage.css
+│   │   ├── reducers
+│   │   │   └── CartReducer.jsx
+│   │   ├── services
+│   │   │   └── api.js
+│   │   ├── store
+│   │   │   └── store.js
+│   │   └── styles
+│   │       └── index.css
 │   └── vite.config.js
 └── README.md
 
-4 directories, 13 files
+23 directories, 50 files
