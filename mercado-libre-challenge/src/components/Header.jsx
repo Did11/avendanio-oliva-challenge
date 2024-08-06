@@ -1,33 +1,15 @@
 // src/components/Header.jsx
 
-import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { useAuth } from '../context/AuthContext'; // Importa el contexto de autenticación
-import SearchBar from '../../shared/components/SearchBar';
-import { searchProducts } from '../services/api';
+import { useAuth } from '../context/AuthContext';
+import ProductSearch from './ProductSearch';
 import './styles/Header.css';
 import logo from '../assets/logo.png';
-import newImage from '../assets/disney.webp';
 
-const Header = ({ setProducts, setLoading, setError }) => {
-  const [query, setQuery] = useState('');
-  const { isAuthenticated, logout } = useAuth(); // Usa el contexto para obtener el estado de autenticación
+const Header = ({ onSearch }) => { // Asegúrate de recibir onSearch
+  const { isAuthenticated, logout } = useAuth();
   const navigate = useNavigate();
-
-  const handleSearch = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    setError(null);
-    try {
-      const data = await searchProducts(query);
-      setProducts(data.results);
-    } catch (error) {
-      setError(error.message);
-    } finally {
-      setLoading(false);
-    }
-  };
 
   const handleLogout = () => {
     logout();
@@ -51,17 +33,14 @@ const Header = ({ setProducts, setLoading, setError }) => {
             <Link to="/login" className="login-link">Ingresa</Link>
           )}
         </nav>
-        <SearchBar query={query} setQuery={setQuery} handleSearch={handleSearch} />
-        <img src={newImage} alt="" className="new-image" />
+        <ProductSearch onSearch={onSearch} /> {/* Pasar onSearch a ProductSearch */}
       </div>
     </header>
   );
 };
 
 Header.propTypes = {
-  setProducts: PropTypes.func.isRequired,
-  setLoading: PropTypes.func.isRequired,
-  setError: PropTypes.func.isRequired,
+  onSearch: PropTypes.func.isRequired,
 };
 
 export default Header;

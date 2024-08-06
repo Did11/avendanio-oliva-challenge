@@ -1,0 +1,14 @@
+/* src/styles/CartPage.css */
+
+.cart-page {
+  padding: 20px;
+}
+
+.cart-items {
+  list-style-type: none;
+  padding: 0;
+}
+
+.cart-summary {
+  margin-top: 20px;
+}

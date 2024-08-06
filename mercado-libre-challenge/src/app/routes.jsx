@@ -10,11 +10,13 @@ import CheckoutPage from '../pages/CheckoutPage';
 import OrderConfirmationPage from '../pages/OrderConfirmationPage';
 import MyPurchasesPage from '../pages/MyPurchasesPage';
 import AccountPage from '../pages/AccountPage';
+import ProductListPage from '../pages/ProductListPage'; // Import the new ProductListPage
 
 const AppRouter = () => (
   <Routes>
     <Route path="/" element={<HomePage />} />
     <Route path="/login" element={<LoginPage />} />
+    <Route path="/search" element={<ProductListPage />} />
     <Route path="/category/:categoryId" element={<CategoryPage />} />
     <Route path="/product/:productId" element={<ProductDetailsPage />} />
     <Route path="/cart" element={<PrivateRoute><CartPage /></PrivateRoute>} />

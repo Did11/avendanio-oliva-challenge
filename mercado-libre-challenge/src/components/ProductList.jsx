@@ -2,7 +2,7 @@
 
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import './styles/ProductList.css'; // Asegúrate de tener estilos si es necesario
+import './styles/ProductList.css';
 
 const ProductList = ({ products }) => {
   if (!products || products.length === 0) {

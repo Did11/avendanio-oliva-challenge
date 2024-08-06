@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Header from '../components/Header'; // Importar Header
-import { fetchProductDetails } from '../services/api'; // Cambiado para coincidir con la función exportada
+import { fetchProductDetails } from '../services/api'; // Importa la función correcta
 
 const ProductDetailsPage = () => {
   const { productId } = useParams();
@@ -12,12 +12,12 @@ const ProductDetailsPage = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const loadProductDetails = async () => { // Renombrar la función local para evitar conflicto
+    const loadProductDetails = async () => {
       setLoading(true);
       setError(null);
 
       try {
-        const data = await fetchProductDetails(productId); // Usar la función importada
+        const data = await fetchProductDetails(productId); // Usa la función importada
         setProduct(data);
       } catch (err) {
         console.error('Error fetching product details:', err);
@@ -27,7 +27,7 @@ const ProductDetailsPage = () => {
       }
     };
 
-    loadProductDetails(); // Llama a la función local que usa la función importada
+    loadProductDetails();
   }, [productId]);
 
   return (

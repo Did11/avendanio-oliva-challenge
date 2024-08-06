@@ -1,9 +1,6 @@
 .
-├── estructura_actual.txt
 ├── estructura_proyecto.txt
 ├── mercado-libre-challenge
-│   ├── estructura_proyecto.txt
-│   ├── estructura_proye.txt
 │   ├── index.html
 │   ├── package.json
 │   ├── package-lock.json
@@ -20,6 +17,7 @@
 │   ├── src
 │   │   ├── app
 │   │   │   ├── App.jsx
+│   │   │   ├── PrivateRoute.jsx
 │   │   │   ├── routes.jsx
 │   │   │   └── styles
 │   │   │       └── App.css
@@ -27,27 +25,25 @@
 │   │   │   ├── disney.webp
 │   │   │   └── logo.png
 │   │   ├── components
-│   │   │   ├── Cart.jsx
+│   │   │   ├── CartItem.jsx
 │   │   │   ├── Header.jsx
+│   │   │   ├── PasswordInput.jsx
 │   │   │   ├── ProductDetails.jsx
 │   │   │   ├── ProductList.jsx
 │   │   │   ├── ProductSearch.jsx
-│   │   │   └── styles
-│   │   │       ├── Cart.css
-│   │   │       ├── Header.css
-│   │   │       └── ProductSearch.css
+│   │   │   ├── styles
+│   │   │   │   ├── Cart.css
+│   │   │   │   ├── CartItem.css
+│   │   │   │   ├── Header.css
+│   │   │   │   ├── ProductDetails.css
+│   │   │   │   ├── ProductList.css
+│   │   │   │   └── ProductSearch.css
+│   │   │   └── UsernameInput.jsx
 │   │   ├── context
 │   │   │   ├── AuthContext.jsx
-│   │   │   └── CartContext.jsx
-│   │   ├── features
-│   │   │   ├── auth
-│   │   │   │   ├── AuthContext.jsx
-│   │   │   │   ├── AuthReducer.js
-│   │   │   │   └── styles
-│   │   │   │       └── Auth.css
-│   │   │   └── cart
-│   │   │       └── styles
-│   │   │           └── Cart.css
+│   │   │   ├── AuthReducer.js
+│   │   │   ├── CartContext.jsx
+│   │   │   └── CartReducer.js
 │   │   ├── main.jsx
 │   │   ├── pages
 │   │   │   ├── AccountPage.jsx
@@ -59,7 +55,10 @@
 │   │   │   ├── MyPurchasesPage.jsx
 │   │   │   ├── OrderConfirmationPage.jsx
 │   │   │   ├── ProductDetailsPage.jsx
+│   │   │   ├── ProductListPage.jsx
 │   │   │   └── styles
+│   │   │       ├── AccountPage.css
+│   │   │       ├── CartPage.css
 │   │   │       ├── HomePage.css
 │   │   │       └── LoginPage.css
 │   │   ├── reducers
@@ -73,4 +72,4 @@
 │   └── vite.config.js
 └── README.md
 
-23 directories, 50 files
+18 directories, 54 files

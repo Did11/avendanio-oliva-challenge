@@ -1,22 +1,33 @@
 // src/components/ProductSearch.jsx
-import PropTypes from 'prop-types';
-import ProductList from './ProductList';
-import './styles/ProductSearch.css';
 
-const ProductSearch = ({ products = [], loading, error }) => {
+import PropTypes from 'prop-types';
+import { useState } from 'react';
+
+const ProductSearch = ({ onSearch }) => {
+  const [query, setQuery] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (query.trim()) {
+      onSearch(query);
+    }
+  };
+
   return (
-    <div>
-      {loading && <p>Cargando...</p>}
-      {error && <p>Error: {error}</p>}
-      <ProductList products={products} />
-    </div>
+    <form onSubmit={handleSubmit} className="search-bar">
+      <input
+        type="text"
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+        placeholder="Buscar productos..."
+      />
+      <button type="submit">Buscar</button>
+    </form>
   );
 };
 
 ProductSearch.propTypes = {
-  products: PropTypes.array,
-  loading: PropTypes.bool.isRequired,
-  error: PropTypes.string,
+  onSearch: PropTypes.func.isRequired,
 };
 
 export default ProductSearch;

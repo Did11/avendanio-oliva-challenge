@@ -38,5 +38,4 @@ CartProvider.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-// Exportar un hook para usar el contexto
 export const useCart = () => useContext(CartContext);

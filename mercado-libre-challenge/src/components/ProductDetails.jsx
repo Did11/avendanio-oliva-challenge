@@ -8,13 +8,18 @@ const ProductDetails = ({ product, onAddToCart }) => {
     return <p>Producto no encontrado.</p>;
   }
 
+  const handleAddToCart = () => {
+    console.log('Adding product to cart:', product); // Para depuración
+    onAddToCart(product);
+  };
+
   return (
     <div className="product-detail">
       <h2>{product.title}</h2>
       <img src={product.image || product.thumbnail} alt={product.title} />
       <p>Precio: ${product.price}</p>
       <p>Descripción: {product.description}</p>
-      <button onClick={() => onAddToCart(product)}>Agregar al Carrito</button>
+      <button onClick={handleAddToCart}>Agregar al Carrito</button>
     </div>
   );
 };
