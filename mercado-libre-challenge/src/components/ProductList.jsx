@@ -1,8 +1,8 @@
+// src/components/ProductList.jsx
 import PropTypes from 'prop-types';
 
 // Componente para listar productos
 const ProductList = ({ products }) => {
-  // Verifica si products es undefined o un array vacío
   if (!products || products.length === 0) {
     return null; // No renderiza nada si no hay productos
   }

@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Header from '../components/Header';
 import ProductSearch from '../components/ProductSearch';
-import Cart from '../components/Cart';
 import AppRouter from './routes';
 import { CartProvider } from '../context/CartContext';
 import { AuthProvider } from '../context/AuthContext';
@@ -21,7 +20,6 @@ const App = () => {
           <Router>
             <Header setProducts={setProducts} setLoading={setLoading} setError={setError} />
             <ProductSearch products={products} loading={loading} error={error} />
-            <Cart />
             <AppRouter />
           </Router>
         </CartProvider>

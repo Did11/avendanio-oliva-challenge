@@ -32,7 +32,7 @@ const Header = ({ setProducts, setLoading, setError }) => {
           <a href="/login" className="login-link">Ingresa</a>
         </nav>
         <SearchBar query={query} setQuery={setQuery} handleSearch={handleSearch} />
-        <img src={newImage} alt="Promotional Image" className="new-image" />
+        <img src={newImage} alt="" className="new-image" />
       </div>
     </header>
   );
