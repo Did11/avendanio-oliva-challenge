@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import ProductList from './ProductList';
 import './styles/ProductSearch.css';
 
-const ProductSearch = ({ products, loading, error }) => {
+const ProductSearch = ({ products = [], loading, error }) => {
   return (
     <div>
       {loading && <p>Cargando...</p>}
@@ -14,7 +14,7 @@ const ProductSearch = ({ products, loading, error }) => {
 };
 
 ProductSearch.propTypes = {
-  products: PropTypes.array.isRequired,
+  products: PropTypes.array,
   loading: PropTypes.bool.isRequired,
   error: PropTypes.string,
 };

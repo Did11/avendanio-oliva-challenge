@@ -1,3 +1,5 @@
+// src/context/CartContext.js
+
 import { createContext, useReducer, useContext } from 'react';
 import PropTypes from 'prop-types';
 import CartReducer from './CartReducer';
@@ -21,8 +23,12 @@ export const CartProvider = ({ children }) => {
     dispatch({ type: 'REMOVE_ITEM', payload: id });
   };
 
+  const updateQuantity = (id, quantity) => {
+    dispatch({ type: 'UPDATE_QUANTITY', payload: { id, quantity } });
+  };
+
   return (
-    <CartContext.Provider value={{ ...state, addItem, removeItem }}>
+    <CartContext.Provider value={{ ...state, addItem, removeItem, updateQuantity }}>
       {children}
     </CartContext.Provider>
   );

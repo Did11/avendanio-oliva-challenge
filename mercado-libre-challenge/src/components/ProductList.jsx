@@ -1,19 +1,23 @@
 // src/components/ProductList.jsx
-import PropTypes from 'prop-types';
 
-// Componente para listar productos
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import './styles/ProductList.css'; // Asegúrate de tener estilos si es necesario
+
 const ProductList = ({ products }) => {
   if (!products || products.length === 0) {
-    return null; // No renderiza nada si no hay productos
+    return <div>No hay productos disponibles.</div>;
   }
 
   return (
-    <ul>
+    <ul className="product-list">
       {products.map((product) => (
-        <li key={product.id}>
-          <h3>{product.title}</h3>
-          <p>Precio: $ {product.price}</p>
-          <img src={product.thumbnail} alt={product.title} />
+        <li key={product.id} className="product-item">
+          <Link to={`/product/${product.id}`} className="product-link">
+            <img src={product.thumbnail} alt={product.title} />
+            <h3>{product.title}</h3>
+            <p>Precio: $ {product.price}</p>
+          </Link>
         </li>
       ))}
     </ul>
@@ -23,10 +27,10 @@ const ProductList = ({ products }) => {
 ProductList.propTypes = {
   products: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.string.isRequired, 
+      id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
       title: PropTypes.string.isRequired,
       price: PropTypes.number.isRequired,
-      thumbnail: PropTypes.string.isRequired, 
+      thumbnail: PropTypes.string.isRequired,
     })
   ).isRequired,
 };
