@@ -7,7 +7,7 @@ import ProductSearch from './ProductSearch';
 import './styles/Header.css';
 import logo from '../assets/logo.png';
 
-const Header = ({ onSearch }) => {
+const Header = ({ onSearch }) => { // Asegúrate de recibir onSearch
   const { isAuthenticated, logout } = useAuth();
   const navigate = useNavigate();
 
@@ -33,7 +33,7 @@ const Header = ({ onSearch }) => {
             <Link to="/login" className="login-link">Ingresa</Link>
           )}
         </nav>
-        <ProductSearch onSearch={(query) => onSearch(query, navigate)} /> {/* Pasa navigate */}
+        <ProductSearch onSearch={onSearch} /> {/* Pasar onSearch a ProductSearch */}
       </div>
     </header>
   );

@@ -1,50 +1,33 @@
-// src/pages/ProductDetailsPage.jsx
+// src/pages/ProductListPage.jsx
 
-import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import Header from '../components/Header'; // Importar Header
-import { fetchProductDetails } from '../services/api'; // Importa la función correcta
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
-const ProductDetailsPage = () => {
-  const { productId } = useParams();
-  const [product, setProduct] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    const loadProductDetails = async () => {
-      setLoading(true);
-      setError(null);
-
-      try {
-        const data = await fetchProductDetails(productId); // Usa la función importada
-        setProduct(data);
-      } catch (err) {
-        console.error('Error fetching product details:', err);
-        setError('Error fetching product details');
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    loadProductDetails();
-  }, [productId]);
-
+const ProductListPage = ({ products = [] }) => {
   return (
-    <div className="product-details-page">
-      <Header />
-      {loading && <p>Cargando...</p>}
-      {error && <p>{error}</p>}
-      {product && (
-        <div>
-          <h2>{product.title}</h2>
-          <img src={product.thumbnail} alt={product.title} />
-          <p>Precio: $ {product.price}</p>
-          <p>{product.description}</p>
+    <div className="product-list-page">
+      <h2>Resultados de Búsqueda</h2>
+      {products.length === 0 ? (
+        <p>No se encontraron productos.</p>
+      ) : (
+        <div className="product-list">
+          {products.map((product) => (
+            <div key={product.id} className="product-item">
+              <Link to={`/product/${product.id}`}>
+                <img src={product.thumbnail} alt={product.title} />
+                <h3>{product.title}</h3>
+              </Link>
+              <p>Precio: $ {product.price}</p>
+            </div>
+          ))}
         </div>
       )}
     </div>
   );
 };
 
-export default ProductDetailsPage;
+ProductListPage.propTypes = {
+  products: PropTypes.array,
+};
+
+export default ProductListPage;

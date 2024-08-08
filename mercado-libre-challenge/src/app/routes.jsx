@@ -1,4 +1,5 @@
 // src/app/routes.jsx
+
 import { Routes, Route } from 'react-router-dom';
 import PrivateRoute from './PrivateRoute';
 import HomePage from '../pages/HomePage';
@@ -10,7 +11,7 @@ import CheckoutPage from '../pages/CheckoutPage';
 import OrderConfirmationPage from '../pages/OrderConfirmationPage';
 import MyPurchasesPage from '../pages/MyPurchasesPage';
 import AccountPage from '../pages/AccountPage';
-import ProductListPage from '../pages/ProductListPage'; // Import the new ProductListPage
+import ProductListPage from '../pages/ProductListPage';
 
 const AppRouter = () => (
   <Routes>
