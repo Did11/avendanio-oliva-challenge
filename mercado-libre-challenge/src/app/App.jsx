@@ -1,5 +1,4 @@
 // src/app/App.jsx
-
 import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { CartProvider } from '../context/CartContext';
@@ -9,6 +8,7 @@ import './styles/App.css';
 import { searchProducts } from '../services/api';
 import ProductListPage from '../pages/ProductListPage';
 import HomePage from '../pages/HomePage';
+import AppRouter from './routes'; // Importar el AppRouter
 
 const App = () => {
   const [searchResults, setSearchResults] = useState([]);
@@ -33,6 +33,7 @@ const App = () => {
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/search" element={<ProductListPage products={searchResults} />} />
+              <Route path="*" element={<AppRouter />} /> {/* Esta línea incluirá todas las demás rutas definidas en AppRouter */}
             </Routes>
           </Router>
         </CartProvider>
