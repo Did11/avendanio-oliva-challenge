@@ -1,0 +1,24 @@
+.shipping-details {
+  margin-bottom: 20px;
+}
+
+.shipping-details form div {
+  margin-bottom: 15px;
+}
+
+.shipping-details label {
+  font-weight: 500;
+}
+
+.shipping-details input {
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  width: 100%;
+}
+
+.shipping-details .error {
+  color: red;
+  font-size: 0.9em;
+  margin-top: 5px;
+}

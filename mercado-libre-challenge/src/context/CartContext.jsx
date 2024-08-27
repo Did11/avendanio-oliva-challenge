@@ -1,21 +1,47 @@
-// src/context/CartContext.js
+// src/context/CartContext.jsx
 
-import { createContext, useReducer, useContext } from 'react';
+import { createContext, useReducer, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import CartReducer from './CartReducer';
+import { useAuth } from './AuthContext';
+import { toast } from 'react-toastify';
 
 const INITIAL_STATE = {
-  items: [],
-  totalAmount: 0,
+  items: JSON.parse(localStorage.getItem('cartItems')) || [],
+  totalAmount: JSON.parse(localStorage.getItem('cartItems'))?.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0
+  ) || 0,
 };
 
-// Crear el contexto del carrito
 export const CartContext = createContext(INITIAL_STATE);
 
 export const CartProvider = ({ children }) => {
   const [state, dispatch] = useReducer(CartReducer, INITIAL_STATE);
+  const { isAuthenticated } = useAuth();
+
+  useEffect(() => {
+    localStorage.setItem('cartItems', JSON.stringify(state.items));
+  }, [state.items]);
 
   const addItem = (item) => {
+    if (!isAuthenticated) {
+      toast.warn('Debe iniciar sesión para agregar productos al carrito', {
+        position: "top-center",
+        autoClose: 1200,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        style: {
+          top: '200px', 
+          backgroundColor: '#3483fa',
+          color: 'white',
+        },
+      });
+      return;
+    }
     dispatch({ type: 'ADD_ITEM', payload: item });
   };
 
@@ -27,8 +53,13 @@ export const CartProvider = ({ children }) => {
     dispatch({ type: 'UPDATE_QUANTITY', payload: { id, quantity } });
   };
 
+  // Nueva función para vaciar el carrito
+  const clearCart = () => {
+    dispatch({ type: 'CLEAR_CART' });
+  };
+
   return (
-    <CartContext.Provider value={{ ...state, addItem, removeItem, updateQuantity }}>
+    <CartContext.Provider value={{ ...state, addItem, removeItem, updateQuantity, clearCart }}>
       {children}
     </CartContext.Provider>
   );
@@ -37,5 +68,3 @@ export const CartProvider = ({ children }) => {
 CartProvider.propTypes = {
   children: PropTypes.node.isRequired,
 };
-
-export const useCart = () => useContext(CartContext);

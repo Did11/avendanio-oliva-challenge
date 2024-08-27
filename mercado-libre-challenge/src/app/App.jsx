@@ -3,22 +3,24 @@ import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { CartProvider } from '../context/CartContext';
 import { AuthProvider } from '../context/AuthContext';
-import Header from '../components/Header'; 
+import Header from '../components/Header';
 import './styles/App.css';
 import { searchProducts } from '../services/api';
 import ProductListPage from '../pages/ProductListPage';
 import HomePage from '../pages/HomePage';
-import AppRouter from './routes'; // Importar el AppRouter
+import AppRouter from './routes';
+import CartNotification from '../components/CartNotification';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
   const [searchResults, setSearchResults] = useState([]);
 
   const handleSearch = async (query, navigate) => {
-    console.log('Buscando:', query);
     try {
       const results = await searchProducts(query);
       setSearchResults(results.results);
-      navigate('/search'); // Navegar a la página de resultados
+      navigate('/search');
     } catch (error) {
       console.error('Error al buscar productos:', error);
     }
@@ -33,8 +35,10 @@ const App = () => {
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/search" element={<ProductListPage products={searchResults} />} />
-              <Route path="*" element={<AppRouter />} /> {/* Esta línea incluirá todas las demás rutas definidas en AppRouter */}
+              <Route path="*" element={<AppRouter />} />
             </Routes>
+            <CartNotification />
+            <ToastContainer />
           </Router>
         </CartProvider>
       </AuthProvider>

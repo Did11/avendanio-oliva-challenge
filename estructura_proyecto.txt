@@ -8,12 +8,6 @@
 │   ├── public
 │   │   └── favicon.ico
 │   ├── README.md
-│   ├── shared
-│   │   └── components
-│   │       ├── ProductCard.jsx
-│   │       ├── SearchBar.jsx
-│   │       └── styles
-│   │           └── SearchBar.css
 │   ├── src
 │   │   ├── app
 │   │   │   ├── App.jsx
@@ -25,8 +19,10 @@
 │   │   │   ├── disney.webp
 │   │   │   └── logo.png
 │   │   ├── components
+│   │   │   ├── backupe.js
 │   │   │   ├── CartItem.jsx
 │   │   │   ├── Header.jsx
+│   │   │   ├── Modal.jsx
 │   │   │   ├── PasswordInput.jsx
 │   │   │   ├── ProductDetails.jsx
 │   │   │   ├── ProductList.jsx
@@ -35,6 +31,7 @@
 │   │   │   │   ├── Cart.css
 │   │   │   │   ├── CartItem.css
 │   │   │   │   ├── Header.css
+│   │   │   │   ├── Modal.css
 │   │   │   │   ├── ProductDetails.css
 │   │   │   │   ├── ProductList.css
 │   │   │   │   └── ProductSearch.css
@@ -70,6 +67,7 @@
 │   │   └── styles
 │   │       └── index.css
 │   └── vite.config.js
+├── package-lock.json
 └── README.md
 
-18 directories, 54 files
+15 directories, 55 files
